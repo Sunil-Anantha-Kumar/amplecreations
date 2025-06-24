@@ -1,38 +1,50 @@
+// Initialize AOS
 AOS.init({
     duration: 1000,
     once: true
 });
 
-const themeToggle = document.getElementById('themeToggle');
+// Load Navbar and Footer
+function loadNavbarAndFooter() {
+    const navbarPath = window.location.pathname.includes('/projects/') ? '../navbar.html' : 'navbar.html';
+    const footerPath = window.location.pathname.includes('/projects/') ? '../footer.html' : 'footer.html';
 
-if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-theme');
+    // Load Navbar
+    fetch(navbarPath)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+
+            initializeThemeToggle();
+            initializeNavbarCollapse();
+
+            // Apply the saved theme
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+
+            // If the current page needs dynamic hero background
+            if (typeof updateHeroBackground === 'function') {
+                updateHeroBackground();
+            }
+        })
+        .catch(error => console.error('Navbar load failed:', error));
+
+    // Load Footer
+    fetch(footerPath)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => console.error('Footer load failed:', error));
 }
 
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    if (document.body.classList.contains('dark-theme')) {
-        localStorage.setItem('theme', 'dark');
-    } else {
-        localStorage.setItem('theme', 'light');
-    }
-});
-
-window.addEventListener('scroll', function () {
-    const scrolled = window.pageYOffset;
-    document.querySelectorAll('.parallax').forEach(function (el) {
-        el.style.backgroundPositionY = (scrolled * 0.5) + 'px';
-    });
-});
 // Theme toggle logic
 function initializeThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
+    if (!themeToggle) return;
 
-    if (!themeToggle) return; // Exit if themeToggle not present
-
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-theme');
-    }
+    themeToggle.style.cursor = 'pointer';
 
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-theme');
@@ -41,6 +53,11 @@ function initializeThemeToggle() {
         } else {
             localStorage.setItem('theme', 'light');
         }
+
+        // Update hero background if the page supports it
+        if (typeof updateHeroBackground === 'function') {
+            updateHeroBackground();
+        }
     });
 }
 
@@ -48,7 +65,7 @@ function initializeThemeToggle() {
 function initializeNavbarCollapse() {
     document.addEventListener('click', function (event) {
         const navbarCollapse = document.getElementById('navbarNav');
-        if (!navbarCollapse) return; // Exit if navbar is not present on this page
+        if (!navbarCollapse) return;
 
         const isNavbarOpen = navbarCollapse.classList.contains('show');
         const isClickInsideNavbar = event.target.closest('#navbarNav') || event.target.closest('.navbar-toggler');
@@ -60,7 +77,7 @@ function initializeNavbarCollapse() {
     });
 }
 
-// Initialize Parallax effect
+// Parallax effect
 function initializeParallax() {
     window.addEventListener('scroll', function () {
         const scrolled = window.pageYOffset;
@@ -70,9 +87,8 @@ function initializeParallax() {
     });
 }
 
-// Initialize all features when content is loaded
+// Final Initialization
 document.addEventListener('DOMContentLoaded', function () {
-    initializeThemeToggle();
-    initializeNavbarCollapse();
+    loadNavbarAndFooter();
     initializeParallax();
 });
