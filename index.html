@@ -53,17 +53,33 @@
             color: #f1f1f1 !important;
         }
 
-        .navbar {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      /* Navbar Theme Handling */
+.navbar {
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        .dark-theme .navbar {
-            background-color: #1f1f1f !important;
-        }
+.navbar-light {
+    background-color: white !important;
+    color: #212529 !important;
+}
 
-        .dark-theme .navbar-nav .nav-link {
-            color: #f1f1f1 !important;
-        }
+.dark-theme .navbar {
+    background-color: #1f1f1f !important;
+}
+
+.dark-theme .navbar .nav-link,
+.dark-theme .navbar .navbar-brand {
+    color: #f1f1f1 !important;
+}
+
+.dark-theme .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
 
         .theme-toggle {
             cursor: pointer;
