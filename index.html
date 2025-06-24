@@ -42,12 +42,12 @@
 
         .hero {
             background: url('./assets/background.png') center/cover no-repeat;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            transition: color 0.3s, background-image 0.3s;
+            transition: background-image 0.3s;
         }
 
         .dark-theme .hero {
@@ -63,12 +63,10 @@
         }
 
         .parallax {
-            background-attachment: fixed;
+            background-attachment: scroll;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            transform: translateZ(0);
-            will-change: transform;
         }
 
         .card {
@@ -94,64 +92,67 @@
             background-color: #1f1f1f !important;
             color: #f1f1f1 !important;
         }
+
         .partner-marquee {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    margin-top: 30px;
-}
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            margin-top: 30px;
+        }
 
-.partner-track {
-    display: inline-block;
-    animation: scroll 20s linear infinite;
-}
+        .partner-track {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+        }
 
-.partner-track img {
-    height: 80px;
-    margin: 0 40px;
-}
+        .partner-track img {
+            height: 80px;
+            margin: 0 40px;
+        }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-.navbar-brand {
-    color: #212529; /* Light theme text color */
-    transition: color 0.3s;
-}
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
 
-.dark-theme .navbar-brand {
-    color: #f1f1f1 !important; /* Dark theme text color */
-}
-.btn-custom {
-    border: 2px solid #212529;
-    background-color: transparent;
-    color: #212529;
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    cursor: pointer;
-}
+            100% {
+                transform: translateX(-50%);
+            }
+        }
 
-.btn-custom:hover {
-    background-color: #212529;
-    color: #ffffff;
-}
+        .navbar-brand {
+            color: #212529;
+            transition: color 0.3s;
+        }
 
-.dark-theme .btn-custom {
-    border: 2px solid #f1f1f1;
-    color: #f1f1f1;
-}
+        .dark-theme .navbar-brand {
+            color: #f1f1f1 !important;
+        }
 
-.dark-theme .btn-custom:hover {
-    background-color: #f1f1f1;
-    color: #121212;
-}
+        .btn-custom {
+            border: 2px solid #212529;
+            background-color: transparent;
+            color: #212529;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            cursor: pointer;
+        }
 
+        .btn-custom:hover {
+            background-color: #212529;
+            color: #ffffff;
+        }
+
+        .dark-theme .btn-custom {
+            border: 2px solid #f1f1f1;
+            color: #f1f1f1;
+        }
+
+        .dark-theme .btn-custom:hover {
+            background-color: #f1f1f1;
+            color: #121212;
+        }
     </style>
 </head>
 
@@ -159,85 +160,76 @@
     <!-- Navbar -->
     <div id="navbar"></div>
 
-   <!-- Hero Section -->
-<!-- Hero Section -->
-<section class="hero parallax" id="home">
-    <div class="hero-content" data-aos="fade-up">
-        <h1 class="display-4 fw-bold">Crafting Unforgettable Events</h1>
-        <p class="lead mb-4">Your trusted event partner.</p>
-
-        <!-- Partner Brands Marquee -->
-        <div class="partner-marquee">
-            <div class="partner-track">
-                <img src="./assets/partner1.png" alt="Partner 1">
-                <img src="./assets/partner2.png" alt="Partner 2">
-                <img src="./assets/partner3.png" alt="Partner 3">
-                <img src="./assets/partner4.png" alt="Partner 4">
-                <img src="./assets/partner4.png" alt="Partner 4">
-                <img src="./assets/partner5.png" alt="Partner 5">
-                <img src="./assets/partner6.png" alt="Partner 6">
-                <img src="./assets/partner7.png" alt="Partner 7">
-
-                <!-- Repeat logos for continuous effect -->
-                <img src="./assets/partner1.png" alt="Partner 1">
-                <img src="./assets/partner2.png" alt="Partner 2">
-                <img src="./assets/partner3.png" alt="Partner 3">
-                <img src="./assets/partner4.png" alt="Partner 4">
-                <img src="./assets/partner5.png" alt="Partner 5">
-                <img src="./assets/partner6.png" alt="Partner 6">
-                <img src="./assets/partner7.png" alt="Partner 7">
+    <!-- Hero Section -->
+    <section class="hero parallax" id="home">
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="display-4 fw-bold">Crafting Unforgettable Events</h1>
+            <p class="lead mb-4">Your trusted event partner.</p>
+            <!-- Partner Brands Marquee -->
+            <div class="partner-marquee">
+                <div class="partner-track">
+                    <img src="./assets/partner1.png" alt="Partner 1">
+                    <img src="./assets/partner2.png" alt="Partner 2">
+                    <img src="./assets/partner3.png" alt="Partner 3">
+                    <img src="./assets/partner4.png" alt="Partner 4">
+                    <img src="./assets/partner5.png" alt="Partner 5">
+                    <img src="./assets/partner6.png" alt="Partner 6">
+                    <img src="./assets/partner7.png" alt="Partner 7">
+                    <img src="./assets/partner1.png" alt="Partner 1">
+                    <img src="./assets/partner2.png" alt="Partner 2">
+                    <img src="./assets/partner3.png" alt="Partner 3">
+                    <img src="./assets/partner4.png" alt="Partner 4">
+                    <img src="./assets/partner5.png" alt="Partner 5">
+                    <img src="./assets/partner6.png" alt="Partner 6">
+                    <img src="./assets/partner7.png" alt="Partner 7">
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-</section>
+    </section>
 
     <!-- Gallery Section -->
-<section id="gallery" class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-5" data-aos="fade-up">Our Latest Projects</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4 d-flex" data-aos="zoom-in">
-                <a href="projects/automobile.html" class="text-decoration-none w-100">
-                    <div class="card h-100 d-flex flex-column">
-                        <img src="./assets/carshowroom.png" class="card-img-top" alt="Project 1">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Automobile Events</h5>
-                            <p class="card-text"><p class="card-text">From luxury car showcases to adrenaline-packed motor expos, we craft automotive experiences that leave a lasting impression.</p>
-</p>
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Our Latest Projects</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4 d-flex" data-aos="zoom-in">
+                    <a href="projects/automobile.html" class="text-decoration-none w-100">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="./assets/carshowroom.png" class="card-img-top" alt="Project 1">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Automobile Events</h5>
+                                <p class="card-text">From luxury car showcases to adrenaline-packed motor expos, we craft automotive experiences that leave a lasting impression.</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="col-md-4 mb-4 d-flex" data-aos="zoom-in" data-aos-delay="100">
-                <a href="projects/corporate.html" class="text-decoration-none w-100">
-                    <div class="card h-100 d-flex flex-column">
-                        <img src="./assets/corporate1.png" class="card-img-top" alt="Project 2">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Corporate Events</h5>
-                            <p class="card-text">Seamlessly executed conferences, summits, and corporate gatherings designed to elevate your brand and foster meaningful connections.</p>
+                <div class="col-md-4 mb-4 d-flex" data-aos="zoom-in" data-aos-delay="100">
+                    <a href="projects/corporate.html" class="text-decoration-none w-100">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="./assets/corporate1.png" class="card-img-top" alt="Project 2">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Corporate Events</h5>
+                                <p class="card-text">Seamlessly executed conferences, summits, and corporate gatherings designed to elevate your brand and foster meaningful connections.</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="col-md-4 mb-4 d-flex" data-aos="zoom-in" data-aos-delay="200">
-                <a href="projects/apparel.html" class="text-decoration-none w-100">
-                    <div class="card h-100 d-flex flex-column">
-                        <img src="./assets/gala1.png" class="card-img-top" alt="Project 3">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Apparel Branding</h5>
-                            <p class="card-text">Distinctive apparel branding solutions that transform clothing into powerful marketing tools, amplifying your brand presence at every event.</p>
+                <div class="col-md-4 mb-4 d-flex" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="projects/apparel.html" class="text-decoration-none w-100">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="./assets/gala1.png" class="card-img-top" alt="Project 3">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Apparel Branding</h5>
+                                <p class="card-text">Distinctive apparel branding solutions that transform clothing into powerful marketing tools, amplifying your brand presence at every event.</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Founder Section -->
     <section id="founder" class="py-5 bg-light parallax founder-section" style="background-image: url('https://source.unsplash.com/1600x900/?founder');">
@@ -276,7 +268,6 @@
         </div>
     </section>
 
-
     <!-- Footer -->
     <div id="footer"></div>
 
@@ -295,8 +286,8 @@
             .then(data => {
                 document.getElementById('navbar').innerHTML = data;
 
-                // Attach dark theme toggle handler after navbar is loaded
                 const themeToggle = document.getElementById('themeToggle');
+
                 if (localStorage.getItem('theme') === 'dark') {
                     document.body.classList.add('dark-theme');
                 }
