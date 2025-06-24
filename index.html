@@ -11,6 +11,36 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        @media (max-width: 500px) {
+    .hero-content .fw-bold {
+        font-size: 1.5rem !important;
+        word-break: break-word;
+    }
+}
+        .partner-marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.partner-track {
+    display: inline-flex; /* Changed from inline-block to inline-flex */
+    animation: scroll 20s linear infinite;
+}
+
+.partner-track img {
+    height: 80px;
+    margin: 0 20px; /* Reduced margin to prevent overflow */
+    max-width: 100%; /* Ensure images are responsive */
+}
+
+        html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
         body {
             scroll-behavior: smooth;
             transition: background-color 0.3s, color 0.3s;
@@ -163,7 +193,7 @@
     <!-- Hero Section -->
     <section class="hero parallax" id="home">
         <div class="hero-content" data-aos="fade-up">
-            <h1 class="display-4 fw-bold">Crafting Unforgettable Events</h1>
+            <h1 class="fw-bold">Crafting Unforgettable Events</h1>
             <p class="lead mb-4">Your trusted event partner.</p>
             <!-- Partner Brands Marquee -->
             <div class="partner-marquee">
